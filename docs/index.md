@@ -51,6 +51,8 @@ load this data "https://vega.github.io/vega-lite/examples/data/movies.json"
 }
 ```
 
+for more on this go to [vega docs](https://vega.github.io/vega-lite/examples/)
+
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
