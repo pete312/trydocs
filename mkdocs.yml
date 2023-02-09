@@ -1,1 +1,58 @@
-site_name: My Docs
+site_name: New look.
+
+theme:
+    name: material
+    nav_style: light
+    palette:
+        accent: pink
+        primary: indigo
+    
+nav:
+    
+    
+plugins:
+    - search
+    - charts
+    - mermaid2:
+        version: 8.6.4
+        securityLevel: 'loose'
+
+
+      
+markdown_extensions:
+  - admonition
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  
+  - pymdownx.snippets
+  - pymdownx.details
+  - footnotes
+  - pymdownx.tasklist:
+      custom_checkbox: true    
+      clickable_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
+          
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+          
+          
+extra_css:
+    - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+
+extra_javascript:
+    - https://unpkg.com/mermaid/dist/mermaid.min.js
+    - https://cdn.jsdelivr.net/npm/vega@5
+    - https://cdn.jsdelivr.net/npm/vega-lite@5
+    - https://cdn.jsdelivr.net/npm/vega-embed@6
