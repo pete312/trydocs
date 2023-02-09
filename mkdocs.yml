@@ -50,6 +50,7 @@ markdown_extensions:
           
 extra_css:
     - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+    - css/custom.css
 
 extra_javascript:
     - https://unpkg.com/mermaid/dist/mermaid.min.js
