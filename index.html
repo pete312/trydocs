@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="bootstraping/" rel="next"/>
+<link href="customize/" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.11" name="generator"/>
 <title>New look.</title>
@@ -115,6 +115,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#vega-test">
+    vega test
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#commands">
     Commands
   </a>
@@ -126,11 +131,6 @@
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="bootstraping/">
-        Shebanging it
-      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="customize/">
@@ -151,6 +151,11 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vega-test">
+    vega test
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#commands">
     Commands
@@ -176,6 +181,42 @@
 <img class="fade-in-image" src="https://cssanimation.rocks//demo/starwars/images/wars.svg"/>
 <div class="fade-in-image-late"> may the docs be with you. </div>
 </div>
+<h2 id="vega-test">vega test</h2>
+<p>load this data "https://vega.github.io/vega-lite/examples/data/movies.json" </p>
+<p><vegachart class="vegalite" style="width: 100%">{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"data": {"url": "https://vega.github.io/vega-lite/examples/data/movies.json"},
+"transform": [{
+"filter": {"and": [
+    {"field": "IMDB Rating", "valid": true},
+    {"field": "Rotten Tomatoes Rating", "valid": true}
+]}
+}],
+"mark": "rect",
+"width": 300,
+"height": 200,
+"encoding": {
+"x": {
+    "bin": {"maxbins":60},
+    "field": "IMDB Rating",
+    "type": "quantitative"
+},
+"y": {
+    "bin": {"maxbins": 40},
+    "field": "Rotten Tomatoes Rating",
+    "type": "quantitative"
+},
+"color": {
+    "aggregate": "count",
+    "type": "quantitative"
+}
+},
+"config": {
+"view": {
+    "stroke": "transparent"
+}
+}
+}</vegachart></p>
 <p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
 <h2 id="commands">Commands</h2>
 <ul>
@@ -219,5 +260,8 @@ docs/
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+        var mkdocs_chart_plugin = {'data_path': '', 'use_data_path': 'True', 'vega_theme': 'default', 'vega_theme_dark': 'dark', 'vega_renderer': 'svg', 'vega_width': 'container', 'fallback_width': '800', 'path_to_homepage': '../.'}
+        </script>
 </body>
 </html>
