@@ -5,11 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href=".." rel="prev"/>
-<link href="../customize/" rel="next"/>
+<link href="../bootstraping/" rel="prev"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.11" name="generator"/>
-<title>Shebanging it - New look.</title>
+<title>Customize - New look.</title>
 <link href="../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#shebanging-it">
+<a class="md-skip" href="#digging-deeper">
           Skip to content
         </a>
 </div>
@@ -47,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Shebanging it
+              Customize
             
           </span>
 </div>
@@ -104,14 +103,14 @@
         Welcome to MkDocs
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bootstraping/">
         Shebanging it
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../customize/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         Customize
       </a>
 </li>
@@ -130,32 +129,34 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="shebanging-it">Shebanging it</h1>
-<p>This is history.. if it is boring by all means skip to the what matterns.</p>
-<p><code>#!</code> (shebang) is old! And respect, but it wants an absolute path to the interpreter that its about to sent to the rest of the text below it.</p>
-<p>It actually does this</p>
-<p><code>exec (the interpreter path) $0 $@</code> which is like launch this script with the path I got after #!. But that is not all exec does something special too.</p>
-<p>exec spawns off another process but it aquired the shells pid and transferes control of that pid to the new process and the scipt exits at that exec line. Computer magic right? Thinkk about it. exec is the ultimate mover. it moves all the furnature of the previous process out and holds the deed to the pid while the new process moves in. Pretty cool.</p>
-<p>But shebang wont accept any path except an absolute path. So cant do $HOME/bin/python3 or ../../../bin/python or python3 even. And thats a problem for virutal envs. But there is a workaround </p>
-<div class="highlight"><pre><span></span><code>#!/bin/env python3
-print("i am python")
+<h1 id="digging-deeper"><custom>digging deeper</custom></h1>
+<p><strong>To add your own creation is also pretty easy.</strong></p>
+<p>The part of the config that allows you to import links....</p>
+<div class="highlight"><pre><span></span><code>extra_css:
+    - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+
+extra_javascript:
+    - https://unpkg.com/mermaid/dist/mermaid.min.js
+    - https://cdn.jsdelivr.net/npm/vega@5
+    - https://cdn.jsdelivr.net/npm/vega-lite@5
+    - https://cdn.jsdelivr.net/npm/vega-embed@6
 </code></pre></div>
-<p>so what that does is resolve where python3 is in your path and then runs the path it found with the args you gave. </p>
-<p>Ok. so there is a hack we can do to fake it.</p>
-<p>this.</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-""":"
-__PY=$(which python3)
-
-
-exec $__PY $0 $@
-"""
-
-print("im python")
-</code></pre></div>
-<p>this will launch python but what is cool is it started with bash 1st, found python and launched python with the script.  This can then litterely do anything before launching python.</p>
-<p>ok its messy but we understand now what we need to make this a system.</p>
-<p>... more to come....</p>
+<p>... can also be made to import from the docs dir.</p>
+<p>This is a <code>&lt;custom&gt;</code> tag <custom>I am custom</custom>. </p>
+<p>So add <code>css/custom.css</code> to the docs dir.
+<div class="highlight"><pre><span></span><code><span class="nt">custom</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgb</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">164</span><span class="p">);</span>
+<span class="w">    </span><span class="k">color</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="w"> </span><span class="p">:</span><span class="mf">.3</span><span class="kt">em</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mf">.3</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>and add this to the mkdocs.yml
+<div class="highlight"><pre><span></span><code>extra_css:
+    - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+    - css/custom.css
+</code></pre></div></p>
+<div class="rotated">Way cool.. </div>
 </article>
 </div>
 </div>
