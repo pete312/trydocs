@@ -1,0 +1,5 @@
+requests
+mkdocs
+mkdocs-material
+mkdocs-mermaid2-plugin
+mkdocs-charts-plugin
