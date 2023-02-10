@@ -1,10 +1,10 @@
 # Try out Mkdocs
 
 * clone this repo 
-* run installenv.sh to setup the app.
+* run installenv.bash to setup the app.
 ```
 ./installenv.bash
 ```
 
-And follow the instructions to start the mkdocs demp. The installer can be reran at any time.
+And follow the instructions to start the mkdocs demo. The installer can be re-ran at any time.
 
