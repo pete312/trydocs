@@ -1,0 +1,21 @@
+The demo uses Python virtual envrionments and this can be activated and deactivated with .. 
+
+    source <path to env>/bin/activate
+
+.. and to deactivate again just enter the command deactivate. Once activated you will have mkdocs utility in your PATH
+
+
+To start the demo 
+
+    mkdocs serve 
+
+and open a browser with the url http:/127.0.0.1:8000/
+
+
+To make your own stie
+
+    mkdocs new <dir for your site>
+    cd <dir for your site>
+    mkdocs serve
+
+So to get started just enable your env with ...
